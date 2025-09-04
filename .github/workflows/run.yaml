@@ -1,0 +1,26 @@
+# .github/workflows/run-scripts.yml
+name: Run K8s Setup Scripts
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-setup:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make scripts executable
+        run: |
+          chmod +x ./infra-k8s/clone-org.sh
+          chmod +x ./infra-k8s/kubeadm-inti.sh
+
+      - name: Run script to clone repositories
+        run: ./infra-k8s/clone-org.sh
+
+#      - name: Run script to set up Kubernetes
+ #       run: ./infra-k8s/kubeadm-inti.sh
