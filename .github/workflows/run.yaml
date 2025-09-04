@@ -16,11 +16,11 @@ jobs:
 
       - name: Make scripts executable
         run: |
-          chmod +x ./infra-k8s/clone-org.sh
-          chmod +x ./infra-k8s/kubeadm-inti.sh
+          chmod +x ./clone-org.sh
+          chmod +x ./kubeadm-inti.sh
 
       - name: Run script to clone repositories
-        run: ./infra-k8s/clone-org.sh
+        run: ./clone-org.sh
 
 #      - name: Run script to set up Kubernetes
  #       run: ./infra-k8s/kubeadm-inti.sh
