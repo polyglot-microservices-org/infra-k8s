@@ -17,7 +17,7 @@ jobs:
       - name: Make scripts executable
         run: |
           chmod +x ./scripts/clone-org.sh
-          chmod +x ./scripts/kubeadm-inti.sh
+          chmod +x ./scripts/kubeadm-init.sh
 
       - name: Run script to clone repositories
         run: ./scripts/clone-org.sh
