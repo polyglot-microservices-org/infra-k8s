@@ -22,8 +22,8 @@ jobs:
       - name: Run script to clone repositories
         run: ./scripts/clone-org.sh
 
-      - name: Run script to set up Kubernetes
-        run: ./scripts/kubeadm-init.sh
+     # - name: Run script to set up Kubernetes
+      #  run: ./scripts/kubeadm-init.sh
 
       - name: Deploy all Kubernetes manifests
         run: |
