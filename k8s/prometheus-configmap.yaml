@@ -14,8 +14,7 @@ data:
       - job_name: 'kubernetes-services'
         static_configs:
           - targets:
-            - 'ai-cheatsheet-maker:80'
-            - 'notes-service:80'
-            - 'todo-service:80'
-            - 'user-service:80'
-            - 'frontend:80'
+            - 'ai-cheatsheet-maker.default.svc.cluster.local:5000'
+            - 'notes-service.default.svc.cluster.local:5002'
+            - 'todo-service.default.svc.cluster.local:5001'
+            - 'user-service.default.svc.cluster.local:5000'
