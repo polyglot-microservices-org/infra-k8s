@@ -19,14 +19,17 @@ jobs:
 
       - name: Clone all repos
         run: ./scripts/clone-org.sh
-
-      - name: Deploy all Kubernetes manifests
-        run: |
-          find ./polyglot-org -name '*.yaml' -not -path '*/.github/*' \
-            -exec kubectl apply -f {} \;
+        
 
       - name: Create Kubernetes secret for AWS credentials
         run: |
           kubectl create secret generic bedrock-secrets \
             --from-literal=aws-access-key=${{ secrets.AWS_ACCESS_KEY_ID }} \
             --from-literal=aws-secret-key=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+            
+      - name: Deploy all Kubernetes manifests
+        run: |
+          find ./polyglot-org -name '*.yaml' -not -path '*/.github/*' \
+            -exec kubectl apply -f {} \;
+
