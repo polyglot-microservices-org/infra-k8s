@@ -27,5 +27,5 @@ jobs:
 
       - name: Deploy all Kubernetes manifests
         run: |
-          find ./polyglot-org ./infra-k8s -type d \( -name k8s -o -name network-policies \) \
-            -exec kubectl apply -R -f {} \;
+          find ./polyglot-org -name '*.yaml' -not -path '*/.github/*' \
+            -exec kubectl apply -f {} \;
