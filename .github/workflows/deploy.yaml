@@ -26,9 +26,5 @@ jobs:
             -exec kubectl apply -f {} \;
 
       - name: Create Kubernetes secret from GitHub secrets
-        run: |
-          kubectl create secret generic bedrock-secrets \
-            --from-literal=AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
-            --from-literal=AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
-            --from-literal=AWS_DEFAULT_REGION=us-east-1 \
-            --dry-run=client -o yaml | kubectl apply -f -
+        run: kubectl create secret generic bedrock-secrets --from-literal=AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} --from-literal=AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} --from-literal=AWS_DEFAULT_REGION=us-east-1 --dry-run=client -o yaml | kubectl apply -f -
+
